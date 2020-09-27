@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="InitialStrategy.Village.Abstract.Building">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAADAAAAAAAABAAAAAwAAAAAQAAEAAAAAACAIAAAAAA=</HashCode>
+      <FileName>Village\Abstract\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitialStrategy.Village.Abstract.ResourceField">
+    <Position X="11.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAQAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Village\Abstract\ResourceField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitialStrategy.Village.ResourceFields.Clay" Collapsed="true">
+    <Position X="14" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Village\ResourceFields\Clay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitialStrategy.Village.ResourceFields.Crop" Collapsed="true">
+    <Position X="8.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Village\ResourceFields\Crop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitialStrategy.Village.ResourceFields.Iron" Collapsed="true">
+    <Position X="10.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Village\ResourceFields\Iron.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitialStrategy.Village.ResourceFields.Wood" Collapsed="true">
+    <Position X="12.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Village\ResourceFields\Wood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitialStrategy.Village.VillageFields.Granary">
+    <Position X="7" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAgAEAACAAAAIQAQAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Village\VillageFields\Granary.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InitialStrategy.Village.VillageFields.Residence">
+    <Position X="2" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Village\VillageFields\Residence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InitialStrategy.Village.VillageFields.Warehouse">
+    <Position X="4.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAggAAEEAACAEAAIQAQAACEAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Village\VillageFields\Warehouse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="InitialStrategy.Village.VillageInstance">
+    <Position X="18.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ACAAABoCBgAEIAUAAAGAAAAAAgAAAAAACIAEAACAAAQ=</HashCode>
+      <FileName>Village\VillageInstance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

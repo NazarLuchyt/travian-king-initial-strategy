@@ -1,23 +1,26 @@
+using System;
+using System.Linq;
 using GeneticSharp.Domain.Chromosomes;
 using GeneticSharp.Domain.Fitnesses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using InitialStrategy.Village;
 
-namespace InitialStrategy
-{
-    public class InitialStrategyFitness : IFitness
-    {
-        public double Evaluate(IChromosome chromosome)
-        {
+namespace InitialStrategy {
+    public class InitialStrategyFitness : IFitness {
+        private readonly VillageInstance _village;
+        public int SpentTime;
+
+        public InitialStrategyFitness(VillageInstance village) {
+            _village = village;
+        }
+
+        public double Evaluate(IChromosome chromosome) {
             // Evaluate the fitness of chromosome.
-            var t = chromosome.GetGenes().ToList();
-            var summ = 0;
-            t.ForEach(item => summ += (int)item.Value == 3 ? 1 : 100);
-            Console.WriteLine("Evaluate end -> {0}", summ);
-            return summ;
+            var genes = chromosome.GetGenes().ToList();
+
+
+            var result = _village.GetEvaluate(genes.ConvertAll(item => (int)item.Value).ToArray());
+            ((InitialStrategyChromosome) chromosome).TimeValue = result;
+            return Math.Pow(result + 1, -1);
         }
     }
 }

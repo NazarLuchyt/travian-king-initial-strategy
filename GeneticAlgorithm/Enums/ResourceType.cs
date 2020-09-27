@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace InitialStrategy.Enums
 {
-    enum Buildings
+    public enum ResourceType
     {
-        Crop1 = 1,
-        Crpo2,
-        Wood1,
-        Wood2
+        Wood = 0,
+        Clay,
+        Iron,
+        Crop
     }
 }
