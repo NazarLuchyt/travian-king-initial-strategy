@@ -8,7 +8,7 @@ using InitialStrategy.Village.VillageFields;
 
 namespace InitialStrategy.Village {
     public class VillageInstance {
-        private const int ExceptionalResultValue = 1000000;
+        private const int ExceptionalResultValue = 86400;
 
         private readonly Random _rnd = new Random();
         //public const int MAX_ITERATIONS = 118;
@@ -31,6 +31,14 @@ namespace InitialStrategy.Village {
             return BuildingIds.Count;
         }
 
+        public int GetResidenceId() {
+            if (Residence == null) {
+                throw new Exception("Residence wasn't initialed");
+            }
+
+            return Residence.Id;
+        }
+
         public int GetEvaluate(int[] genes) {
             RefreshState();
             var result = 0;
@@ -40,21 +48,25 @@ namespace InitialStrategy.Village {
 
                 if (buildToBuild == null) {
                     Console.WriteLine($"Building with id {idToBuild} wasn't find");
-                    result += ExceptionalResultValue;
-                    break;
+                    result += ExceptionalResultValue * 20;
+                    continue;
                 }
 
                 if (!buildToBuild.IsPossibleToBuild()) {
-                    Console.WriteLine(
-                        $"Try to build to impossible lvl {buildToBuild.GetName()}. Current lvl {buildToBuild.CurrentLvl} | Max lvl {buildToBuild.MaxLvl}");
-                    result += ExceptionalResultValue;
-                    break;
+                    //Console.WriteLine(
+                    //    $"Try to build to impossible lvl {buildToBuild.GetName()}. Current lvl {buildToBuild.CurrentLvl} | Max lvl {buildToBuild.MaxLvl}");
+                    result += ExceptionalResultValue * 5;
+                    continue;
                 }
 
                 if (!IsEnoughCapacity(buildToBuild.GetNextRequireResources())) {
                     Console.WriteLine(
                         $"Not ENOUGH capacity for {buildToBuild.GetName()}. Current lvl {buildToBuild.CurrentLvl}");
-                    result += ExceptionalResultValue;
+                    result += ExceptionalResultValue * 10;
+                    continue;
+                }
+
+                if (Residence.CurrentLvl == Residence.MaxLvl) {
                     break;
                 }
 
@@ -63,45 +75,14 @@ namespace InitialStrategy.Village {
 
 
             if (Residence.CurrentLvl != Residence.MaxLvl) {
-                result += ExceptionalResultValue;
+                var multiplication = Residence.MaxLvl - Residence.CurrentLvl;
+                result += ExceptionalResultValue * multiplication;
             } else {
                 Console.WriteLine("First success");
             }
 
             return result;
         }
-
-        //public int[] getBaseGen() {
-        //    var newGen = new List<int>();
-
-        //    for (var i = 0; i < 20; i++) {
-        //        var tt = rnd.Next(BuildingIds.Count - 1);
-        //        var newBuildingId = BuildingIds[tt];
-
-        //        var newBuild = Buildings.Find(item => item.Id == newBuildingId);
-
-        //        if (newBuild.CurrentLvl + 1 <= newBuild.MaxLvl) {
-        //            var resourceTable = newBuild.UpgradeTable[newBuild.CurrentLvl]; // Id starts from 0;
-
-        //            var isEnoughWarehouseGranary = this.isEnoughWarehouseGranary(resourceTable.ResourceTable);
-
-        //            if (isEnoughWarehouseGranary == 1) {
-        //                setEnoughRes(resourceTable.ResourceTable);
-        //                newBuild.CurrentLvl += 1;
-        //                build(newBuild);
-        //                newGen.Add(newBuildingId);
-        //            } else {
-        //                if (isEnoughWarehouseGranary == -1) {
-        //                    //warehouse;
-        //                }
-
-        //                if (isEnoughWarehouseGranary == -2) { }
-        //            }
-        //        }
-        //    }
-
-        //    return newGen.ToArray();
-        //}
 
         private void RefreshState() {
             Buildings.ForEach(item => item.RefreshState());
@@ -113,7 +94,9 @@ namespace InitialStrategy.Village {
 
             UpdateWarehouseGranary(waitResourceTime);
 
-            if (GetTimeToWaitResources(building) != 0) Console.WriteLine("UpdateWarehouseGranary works incorrect");
+            if (GetTimeToWaitResources(building) != 0) {
+                Console.WriteLine("UpdateWarehouseGranary works incorrect");
+            }
 
             UpdateWarehouseGranaryAfterBuilding(resources);
 
@@ -127,7 +110,9 @@ namespace InitialStrategy.Village {
         private void UpdateWarehouseGranary(int time) {
             var production = GetProductionPerSecond();
 
-            if (time == 0) return;
+            if (time == 0) {
+                return;
+            }
 
             Warehouse.CurrentWood += (int) Math.Round(production[0] * time, 0);
             Warehouse.CurrentClay += (int) Math.Round(production[1] * time, 0);
@@ -198,16 +183,6 @@ namespace InitialStrategy.Village {
             }
 
             return needToWaitTime.Count > 0 ? needToWaitTime.Max() : 0;
-        }
-
-        private void build(Building item) {
-            //Warehouse.CurrentWood -= item.UpgradeTable[item.CurrentLvl - 1].ResourceTable.Wood;
-            //Warehouse.CurrentClay -= item.UpgradeTable[item.CurrentLvl - 1].ResourceTable.Clay;
-            //Warehouse.CurrentIron -= item.UpgradeTable[item.CurrentLvl - 1].ResourceTable.Iron;
-            //Granary.CurrentCrop -= item.UpgradeTable[item.CurrentLvl - 1].ResourceTable.Crop;
-
-
-            //updateWarehouseGranary(item.UpgradeTable[item.CurrentLvl - 1].Time);
         }
 
         private double[] GetProductionPerSecond() {

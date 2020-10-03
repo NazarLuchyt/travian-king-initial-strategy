@@ -64,11 +64,13 @@
     <Compile Include="InitialStrategyChromosome.cs" />
     <Compile Include="InitialStrategyDomain.cs" />
     <Compile Include="InitialStrategyFitness.cs" />
+    <Compile Include="InitialStrategyMutation.cs" />
     <Compile Include="InitialStrategySelection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Village\Abstract\Building.cs" />
     <Compile Include="Village\Abstract\ResourceField.cs" />
     <Compile Include="Village\Abstract\ResourceSafePlace.cs" />
+    <Compile Include="Village\Additional\ResultItem.cs" />
     <Compile Include="Village\Additional\UpgradeItem.cs" />
     <Compile Include="Village\ResourceFields\Clay.cs" />
     <Compile Include="Village\ResourceFields\Crop.cs" />
