@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using GeneticSharp.Domain;
 using GeneticSharp.Domain.Crossovers;
+using GeneticSharp.Domain.Mutations;
 using GeneticSharp.Domain.Populations;
 using GeneticSharp.Domain.Terminations;
 using InitialStrategy.Village;
@@ -24,8 +25,9 @@ namespace InitialStrategy {
 
 
             //var mutation = new ReverseSequenceMutation();
-            //var mutation = new UniformMutation(true);
-            var mutation = new InitialStrategyMutation();
+            //var mutation = new UniformMutation(true);TworsMutation 
+            //var mutation = new InitialStrategyMutation();
+            var mutation = new TworsMutation();
 
 
             var fitness = new InitialStrategyFitness(village);

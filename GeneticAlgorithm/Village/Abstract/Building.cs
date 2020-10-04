@@ -10,6 +10,7 @@ namespace InitialStrategy.Village.Abstract {
         public readonly int Id;
         public readonly int MaxLvl;
         public readonly int ServerSpeed;
+        public abstract string Name { get; set; }
 
         protected Building(int id, int maxLvl, IEnumerable<UpgradeItem> upgradeTable, int initialLvl = 0,
             int serverSpeed = 3) {

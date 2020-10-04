@@ -15,7 +15,7 @@ namespace InitialStrategy {
         public int TimeValue;
 
         // 118
-        public InitialStrategyChromosome(int maxBuildingId, int goalId) : base(118) {
+        public InitialStrategyChromosome(int maxBuildingId, int goalId) : base(116) {
             _maxBuildingId = maxBuildingId;
             _goalId = goalId;
             CreateGenes();
@@ -31,7 +31,7 @@ namespace InitialStrategy {
             // Generate a gene base on my problem chromosome representation.
             var test = new List<int>();
 
-            for (var i = 0; i < 118; i++) {
+            for (var i = 0; i < 116; i++) {
                 var newGen = _rnd.Next(1, _maxBuildingId + 3);
                 if (newGen > _maxBuildingId) {
                     newGen = _goalId;

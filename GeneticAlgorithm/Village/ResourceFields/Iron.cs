@@ -13,6 +13,7 @@ namespace InitialStrategy.Village.ResourceFields {
         };
 
         public Iron(int id, int maxLvl = 5) : base(id, maxLvl, ResourceType.Iron, InitResourceTable) { }
+        public override string Name { get; set; } = "Iron";
 
         public override string GetName() {
             return $"Iron[{Id}]";

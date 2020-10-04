@@ -4,6 +4,8 @@ using InitialStrategy.Village.Additional;
 
 namespace InitialStrategy.Village.ResourceFields {
     public class Clay : ResourceField {
+        public override string Name { get; set; } = "Clay";
+
         private static readonly UpgradeItem[] InitResourceTable = {
             new UpgradeItem(1, 70, new int[4] {80, 40, 80, 50}),
             new UpgradeItem(2, 180, new int[4] {135, 65, 135, 85}),

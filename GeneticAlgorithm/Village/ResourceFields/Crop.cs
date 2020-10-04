@@ -13,6 +13,7 @@ namespace InitialStrategy.Village.ResourceFields {
         };
 
         public Crop(int id, int maxLvl = 5) : base(id, maxLvl, ResourceType.Crop, InitResourceTable) { }
+        public override string Name { get; set; } = "Crop";
 
         public override string GetName() {
             return $"Crop[{Id}]";

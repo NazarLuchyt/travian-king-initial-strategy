@@ -18,6 +18,8 @@ namespace InitialStrategy.Village.VillageFields {
 
         public Residence(int id, int maxLvl = 10) : base(id, maxLvl, InitResourceTable) { }
 
+        public override string Name { get; set; } = "Residence";
+
         public override string GetName() {
             return $"Residence[{Id}]";
         }

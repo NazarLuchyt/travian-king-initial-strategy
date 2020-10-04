@@ -70,6 +70,7 @@
     <Compile Include="Village\Abstract\Building.cs" />
     <Compile Include="Village\Abstract\ResourceField.cs" />
     <Compile Include="Village\Abstract\ResourceSafePlace.cs" />
+    <Compile Include="Village\Additional\GenInfoItem.cs" />
     <Compile Include="Village\Additional\ResultItem.cs" />
     <Compile Include="Village\Additional\UpgradeItem.cs" />
     <Compile Include="Village\ResourceFields\Clay.cs" />

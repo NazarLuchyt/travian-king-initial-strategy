@@ -34,11 +34,15 @@ namespace InitialStrategy.Village.VillageFields {
             CurrentCrop = _initialResourceValue = initialValue;
         }
 
+        public override string Name { get; set; } = "Granary";
+
         public int CurrentCrop {
             get => _currentCrop;
             set {
                 _currentCrop = value;
-                if (value > GetCapacity()) _currentCrop = GetCapacity();
+                if (value > GetCapacity()) {
+                    _currentCrop = GetCapacity();
+                }
             }
         }
 
@@ -46,13 +50,13 @@ namespace InitialStrategy.Village.VillageFields {
             CurrentCrop = _initialResourceValue;
         }
 
+        public int GetCapacity() {
+            return _capacity[CurrentLvl];
+        }
+
         public override void RefreshState() {
             base.RefreshState();
             RefreshResourceState();
-        }
-
-        public int GetCapacity() {
-            return _capacity[CurrentLvl];
         }
 
         public override string GetName() {

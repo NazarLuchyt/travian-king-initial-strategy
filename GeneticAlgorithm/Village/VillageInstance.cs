@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using InitialStrategy.Enums;
 using InitialStrategy.Village.Abstract;
+using InitialStrategy.Village.Additional;
 using InitialStrategy.Village.ResourceFields;
 using InitialStrategy.Village.VillageFields;
 
@@ -60,8 +61,8 @@ namespace InitialStrategy.Village {
                 }
 
                 if (!IsEnoughCapacity(buildToBuild.GetNextRequireResources())) {
-                    Console.WriteLine(
-                        $"Not ENOUGH capacity for {buildToBuild.GetName()}. Current lvl {buildToBuild.CurrentLvl}");
+                    //Console.WriteLine(
+                    //    $"Not ENOUGH capacity for {buildToBuild.GetName()}. Current lvl {buildToBuild.CurrentLvl}");
                     result += ExceptionalResultValue * 10;
                     continue;
                 }
@@ -84,6 +85,52 @@ namespace InitialStrategy.Village {
             return result;
         }
 
+        public List<GenInfoItem> GetDetailResult(int[] genes) {
+            var result = new List<GenInfoItem>();
+            RefreshState();
+
+            foreach (var idToBuild in genes) {
+                var buildToBuild = Buildings.Find(item => item.Id == idToBuild);
+
+                if (buildToBuild == null) {
+                    Console.WriteLine($"Building with id {idToBuild} wasn't find");
+                    continue;
+                }
+
+                var tempResult = new GenInfoItem();
+                tempResult.Id = buildToBuild.Id;
+
+                if (!buildToBuild.IsPossibleToBuild()) {
+                    tempResult.Action =
+                        $"[Lvl]{buildToBuild.Name}[{buildToBuild.Id}]{buildToBuild.CurrentLvl} -> {buildToBuild.CurrentLvl + 1}";
+                    tempResult.IsGood = false;
+                    result.Add(tempResult);
+                    continue;
+                }
+
+                if (!IsEnoughCapacity(buildToBuild.GetNextRequireResources())) {
+                    tempResult.Action =
+                        $"[Capacity]{buildToBuild.Name}[{buildToBuild.Id}]{buildToBuild.CurrentLvl} -> {buildToBuild.CurrentLvl + 1}";
+                    tempResult.IsGood = false;
+                    result.Add(tempResult);
+                    continue;
+                }
+
+                if (Residence.CurrentLvl == Residence.MaxLvl) {
+                    break;
+                }
+
+                tempResult.Action =
+                    $"[Success] {buildToBuild.Name} [{buildToBuild.Id}] {buildToBuild.CurrentLvl} -> {buildToBuild.CurrentLvl + 1}";
+                tempResult.IsGood = true;
+                tempResult.WaitSeconds = GetSpentTimeForUpgradeBuilding(buildToBuild);
+                result.Add(tempResult);
+
+            }
+
+            return result;
+        }
+
         private void RefreshState() {
             Buildings.ForEach(item => item.RefreshState());
         }
@@ -100,7 +147,7 @@ namespace InitialStrategy.Village {
 
             UpdateWarehouseGranaryAfterBuilding(resources);
 
-            var timeToBuild = building.GetNextRequireTime();
+            var timeToBuild = (int) Math.Round(building.GetNextRequireTime() * 0.72, 0);
             UpdateWarehouseGranary(timeToBuild);
 
             building.UpgradeLvl();

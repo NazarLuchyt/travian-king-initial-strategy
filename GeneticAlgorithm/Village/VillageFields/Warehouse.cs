@@ -14,7 +14,6 @@ namespace InitialStrategy.Village.VillageFields {
             new UpgradeItem(8, 3030, new int[4] {545, 700, 545, 155})
         };
 
-
         private readonly int[] _capacity = {
             800,
             1200,
@@ -38,11 +37,15 @@ namespace InitialStrategy.Village.VillageFields {
             CurrentWood = CurrentClay = CurrentIron = _initialResourceValue = initialValue;
         }
 
+        public override string Name { get; set; } = "Warehouse";
+
         public int CurrentWood {
             get => _currentWood;
             set {
                 _currentWood = value;
-                if (value > GetCapacity()) _currentWood = GetCapacity();
+                if (value > GetCapacity()) {
+                    _currentWood = GetCapacity();
+                }
             }
         }
 
@@ -50,7 +53,9 @@ namespace InitialStrategy.Village.VillageFields {
             get => _currentClay;
             set {
                 _currentClay = value;
-                if (value > GetCapacity()) _currentClay = GetCapacity();
+                if (value > GetCapacity()) {
+                    _currentClay = GetCapacity();
+                }
             }
         }
 
@@ -58,7 +63,9 @@ namespace InitialStrategy.Village.VillageFields {
             get => _currentIron;
             set {
                 _currentIron = value;
-                if (value > GetCapacity()) _currentIron = GetCapacity();
+                if (value > GetCapacity()) {
+                    _currentIron = GetCapacity();
+                }
             }
         }
 
@@ -66,13 +73,13 @@ namespace InitialStrategy.Village.VillageFields {
             CurrentWood = CurrentClay = CurrentIron = _initialResourceValue;
         }
 
+        public int GetCapacity() {
+            return _capacity[CurrentLvl];
+        }
+
         public override void RefreshState() {
             base.RefreshState();
             RefreshResourceState();
-        }
-
-        public int GetCapacity() {
-            return _capacity[CurrentLvl];
         }
 
         public override string GetName() {
