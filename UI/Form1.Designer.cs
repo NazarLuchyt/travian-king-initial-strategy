@@ -28,14 +28,15 @@ namespace UI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea21 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea22 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea23 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series23 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea24 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series24 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.generalAvgValueChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
@@ -46,11 +47,16 @@ namespace UI
             this.detailBestValueChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.bestValueDynamicLabel = new System.Windows.Forms.Label();
             this.humanGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.generalAvgValueChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bestValueChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailAvgValueChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailBestValueChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.humanGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -62,20 +68,21 @@ namespace UI
             this.label1.Size = new System.Drawing.Size(58, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Test";
+            this.label1.Visible = false;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // generalAvgValueChart
             // 
-            chartArea1.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea1.Name = "ChartArea1";
-            this.generalAvgValueChart.ChartAreas.Add(chartArea1);
+            chartArea21.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea21.Name = "ChartArea1";
+            this.generalAvgValueChart.ChartAreas.Add(chartArea21);
             this.generalAvgValueChart.Location = new System.Drawing.Point(526, 97);
             this.generalAvgValueChart.Name = "generalAvgValueChart";
             this.generalAvgValueChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Name = "AverageValue";
-            this.generalAvgValueChart.Series.Add(series1);
+            series21.ChartArea = "ChartArea1";
+            series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series21.Name = "AverageValue";
+            this.generalAvgValueChart.Series.Add(series21);
             this.generalAvgValueChart.Size = new System.Drawing.Size(468, 257);
             this.generalAvgValueChart.TabIndex = 1;
             this.generalAvgValueChart.Text = "chart1";
@@ -92,16 +99,16 @@ namespace UI
             // 
             // bestValueChart
             // 
-            chartArea2.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea2.Name = "ChartArea1";
-            this.bestValueChart.ChartAreas.Add(chartArea2);
+            chartArea22.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea22.Name = "ChartArea1";
+            this.bestValueChart.ChartAreas.Add(chartArea22);
             this.bestValueChart.Location = new System.Drawing.Point(526, 404);
             this.bestValueChart.Name = "bestValueChart";
             this.bestValueChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Name = "AverageValue";
-            this.bestValueChart.Series.Add(series2);
+            series22.ChartArea = "ChartArea1";
+            series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series22.Name = "AverageValue";
+            this.bestValueChart.Series.Add(series22);
             this.bestValueChart.Size = new System.Drawing.Size(468, 257);
             this.bestValueChart.TabIndex = 3;
             this.bestValueChart.Text = "chart2";
@@ -125,23 +132,24 @@ namespace UI
             this.label2.Size = new System.Drawing.Size(35, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Tes";
+            this.label2.Visible = false;
             // 
             // detailAvgValueChart
             // 
             this.detailAvgValueChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea3.Name = "ChartArea1";
-            this.detailAvgValueChart.ChartAreas.Add(chartArea3);
+            chartArea23.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea23.Name = "ChartArea1";
+            this.detailAvgValueChart.ChartAreas.Add(chartArea23);
             this.detailAvgValueChart.Location = new System.Drawing.Point(1011, 97);
             this.detailAvgValueChart.Name = "detailAvgValueChart";
             this.detailAvgValueChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Name = "AverageValue";
-            this.detailAvgValueChart.Series.Add(series3);
-            this.detailAvgValueChart.Size = new System.Drawing.Size(720, 257);
+            series23.ChartArea = "ChartArea1";
+            series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series23.Name = "AverageValue";
+            this.detailAvgValueChart.Series.Add(series23);
+            this.detailAvgValueChart.Size = new System.Drawing.Size(372, 257);
             this.detailAvgValueChart.TabIndex = 6;
             this.detailAvgValueChart.Text = "chart3";
             // 
@@ -150,17 +158,17 @@ namespace UI
             this.detailBestValueChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea4.Name = "ChartArea1";
-            this.detailBestValueChart.ChartAreas.Add(chartArea4);
+            chartArea24.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea24.Name = "ChartArea1";
+            this.detailBestValueChart.ChartAreas.Add(chartArea24);
             this.detailBestValueChart.Location = new System.Drawing.Point(1011, 404);
             this.detailBestValueChart.Name = "detailBestValueChart";
             this.detailBestValueChart.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Name = "AverageValue";
-            this.detailBestValueChart.Series.Add(series4);
-            this.detailBestValueChart.Size = new System.Drawing.Size(720, 257);
+            series24.ChartArea = "ChartArea1";
+            series24.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series24.Name = "AverageValue";
+            this.detailBestValueChart.Series.Add(series24);
+            this.detailBestValueChart.Size = new System.Drawing.Size(372, 257);
             this.detailBestValueChart.TabIndex = 7;
             this.detailBestValueChart.Text = "chart2";
             // 
@@ -168,7 +176,7 @@ namespace UI
             // 
             this.bestValueDynamicLabel.AutoSize = true;
             this.bestValueDynamicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bestValueDynamicLabel.Location = new System.Drawing.Point(1491, 366);
+            this.bestValueDynamicLabel.Location = new System.Drawing.Point(1270, 366);
             this.bestValueDynamicLabel.Name = "bestValueDynamicLabel";
             this.bestValueDynamicLabel.Size = new System.Drawing.Size(58, 25);
             this.bestValueDynamicLabel.TabIndex = 8;
@@ -184,14 +192,54 @@ namespace UI
             this.humanGridView.Location = new System.Drawing.Point(12, 97);
             this.humanGridView.Name = "humanGridView";
             this.humanGridView.RowHeadersVisible = false;
-            this.humanGridView.Size = new System.Drawing.Size(490, 564);
+            this.humanGridView.Size = new System.Drawing.Size(460, 564);
             this.humanGridView.TabIndex = 9;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Location = new System.Drawing.Point(526, 23);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(183, 57);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Mutation";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(17, 19);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(54, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Twors";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(113, 19);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(49, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "RSM";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1752, 673);
+            this.ClientSize = new System.Drawing.Size(1404, 673);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.humanGridView);
             this.Controls.Add(this.bestValueDynamicLabel);
             this.Controls.Add(this.detailBestValueChart);
@@ -209,6 +257,8 @@ namespace UI
             ((System.ComponentModel.ISupportInitialize)(this.detailAvgValueChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailBestValueChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.humanGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,6 +276,10 @@ namespace UI
         private System.Windows.Forms.DataVisualization.Charting.Chart detailBestValueChart;
         private System.Windows.Forms.Label bestValueDynamicLabel;
         private System.Windows.Forms.DataGridView humanGridView;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 
