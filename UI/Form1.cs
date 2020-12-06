@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace UI {
         private const string DetailBestValueChartLabel = "DetailBestValue";
         private const string DetailAvgValueChartLabel = "DetailAvgValue";
         private Timer _updateChartTimer;
+        private Stopwatch _stopwatch;
         public ConcurrentQueue<int[]> AverageValuations = new ConcurrentQueue<int[]>();
         public ConcurrentQueue<ResultItem> BestChromosome = new ConcurrentQueue<ResultItem>();
 
@@ -45,9 +47,16 @@ namespace UI {
 
         public void InitTimer() {
             _updateChartTimer = new Timer();
+            _stopwatch = new Stopwatch();
+            _stopwatch.Start();
             _updateChartTimer.Tick += UpdateCharts;
             _updateChartTimer.Interval = 300; // in miliseconds
             _updateChartTimer.Start();
+
+            timer1.Interval = 1000;
+            timer1.Start();
+           
+
         }
 
         public void UpdateCharts(object sender, EventArgs e) {
@@ -64,7 +73,7 @@ namespace UI {
                 bestValueChart.Series[BestValueChartLabel].Points.AddXY(item[0], item[2]);
             });
 
-            var skipCount = result.Count - 50;
+            var skipCount = result.Count - Int32.Parse(lastGenerationTextBox.Text);
             var newResult = result.Skip(skipCount > 0 ? skipCount : 0);
 
             foreach (var item in result.Skip(skipCount > 0 ? skipCount : 0)) {
@@ -109,6 +118,8 @@ namespace UI {
                 }
 
                 _updateChartTimer.Stop();
+                timer1.Stop();
+                _stopwatch.Stop();
             }
         }
 
@@ -133,12 +144,17 @@ namespace UI {
         private void button1_Click(object sender, EventArgs e) {
             InitChars();
             InitTimer();
+            lastGenerationTextBox.Enabled = false;
 
             SetupGeneticAlgorithm();
         }
 
         private void stopBtn_Click(object sender, EventArgs e) {
             _updateChartTimer.Stop();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            timerLabel.Text = Math.Round(_stopwatch.Elapsed.TotalSeconds) + " seconds";
         }
     }
 }

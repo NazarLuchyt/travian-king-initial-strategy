@@ -121,7 +121,7 @@ namespace InitialStrategy.Village {
                 }
 
                 tempResult.Action =
-                    $"[Success] {buildToBuild.Name} [{buildToBuild.Id}] {buildToBuild.CurrentLvl} -> {buildToBuild.CurrentLvl + 1}";
+                    $"{buildToBuild.Name} [{buildToBuild.Id}] {buildToBuild.CurrentLvl} -> {buildToBuild.CurrentLvl + 1}";
                 tempResult.IsGood = true;
                 tempResult.WaitSeconds = GetSpentTimeForUpgradeBuilding(buildToBuild);
                 result.Add(tempResult);
